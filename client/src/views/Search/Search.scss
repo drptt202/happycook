@@ -1,0 +1,17 @@
+.auto-complete {
+    margin-top: 4px;
+    background-color: white;
+    list-style: none;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+.auto-complete .content {
+    margin: 4px 12px;
+    cursor: pointer;
+    padding: 4px 12px;
+}
+.auto-complete .content:hover {
+    background-color: #DADDE1;
+    border-radius: 10px;
+
+}

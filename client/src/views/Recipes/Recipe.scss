@@ -1,0 +1,279 @@
+.right__col1 {
+    margin-top: 2%;
+    margin-left: 28%;
+}
+
+.ingredient-container {
+    width: 56%;
+}
+.recipe-container .recipe-detail .recipe-description{
+  text-align: justify;
+  font-size: 0.9rem;
+  color: #818181;
+  margin: 18px auto;
+}
+
+.food-content-container .delete-recipe {
+    position: relative;
+    top: -4px;
+    right: -64px;
+    color: red;
+    display: none;
+}
+
+.food-content-container .edit-recipe {
+    position: relative;
+    top: 24px;
+    right: -50px;
+    color: red;
+    display: none;
+}
+
+.item-header .item-header-name {
+    display: inline-block;
+    max-width: 15ch;
+}
+
+.food-content-container:hover .delete-recipe,
+.food-content-container:hover .edit-recipe {
+    display: inline;
+}
+
+.recipe-container .recipe-detail,
+.ingredient-container .comments-detail,
+.ingredient-container .ingredient-detail,
+.ingredient-container .guide-detail {
+    border: 1px solid #ffcccc;
+    background-color: #fff;
+    border-radius: 10px;
+    width: 180%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding-top: 10px;
+    background-color:#F8F6F2;
+}
+
+.ingredient-container .guide-detail h2,
+.ingredient-container .guide-detail img,
+.ingredient-container .guide-detail p,
+.ingredient-container .guide-detail h6,
+.ingredient-container .comments-detail h6,
+.ingredient-container .ingredient-detail h2,
+.ingredient-container .ingredient-detail p {
+    color: #000;
+    text-decoration: inherit;
+    margin-left: 10%;
+    text-align: start;
+}
+
+.ingredient-container .guide-detail img {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+}
+
+.ingredient-container .guide-detail .guide-description {
+    margin-left: 14%;
+}
+
+.recipe-container img {
+    border-radius: 10px;
+    width: 180%;
+    height: 355px;
+}
+
+.recipe-container .recipe-detail h1 {
+    color: #000;
+    text-decoration: inherit;
+    margin-left: 10%;
+    max-width: 22ch;
+    overflow-wrap: break-word;
+    text-align: start;
+}
+
+.recipe-detail .recipe-detail-user {
+    text-align: left;
+    margin-left: 10%;
+    position: relative;
+    top: 40px;
+}
+
+.recipe-detail .row .col-4 .icon {
+    font-size: 28px;
+}
+
+.recipe-detail .row .col-4:first-child {
+    color: purple;
+}
+
+.recipe-detail .row .col-4:nth-child(2) {
+    color: orange;
+}
+
+.recipe-detail .row .col-4:last-child {
+    color: red;
+}
+
+.recipe-detail .row .col-4 span {
+    font-weight: 600;
+    color: black;
+}
+
+.recipe-detail .recipe-detail-user img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.recipe-detail .recipe-detail-user h5 {
+    display: inline;
+    color: #000 ;
+}
+
+.recipe-detail .recipe-icon {
+    font-size: 20px; 
+    margin-left: 150px; 
+    text-align: right;
+    width: 100%;
+    position: relative;
+    top: -18px;
+}
+.recipe-detail .recipe-icon .book-mark,
+.recipe-detail .recipe-icon .like {
+    cursor: pointer;
+}
+
+.recipe-detail .recipe-icon .book-mark{
+    margin-left: 2%;
+    margin-right: 30%; 
+    margin-top: 4%;
+}
+
+.recipe-detail .row p {
+    overflow-wrap: break-word;
+}
+
+.comments-detail .comment-detail-user {
+    text-align: left;
+    margin-left: 10%;
+    position: relative;
+}
+
+.comments-detail .comment-detail-user .comment-option-btn {
+    position: absolute;
+    right: 8%;
+    top: 48%;
+    cursor: pointer;
+}
+
+.comment-option {
+    position: absolute;
+    width: 128px;
+    right: 3%;
+    top: -18px;
+    padding: 5px;
+    border-radius: 15px;
+    background-color: white;
+    border: 1px solid gray;
+    -webkit-user-select: none;
+    user-select: none;
+    display: none;
+}
+  
+.comment-option::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    right: 33px;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    background-color: white;
+    border-bottom: 1px solid gray;
+    border-right: 1px solid gray;
+}
+
+.comment-option .comment-option-item {
+    cursor: pointer;
+}
+
+.comments-detail .comment-detail-user img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+
+.comments-detail .comment-detail-user .name-and-date p {
+    display: inline;
+    color: #000 ;
+    position: relative;
+    top: -6px;
+    margin-left: 4px;
+}
+
+.comments-detail .comment-detail-user .name-and-date .date {
+    font-size: 12px;
+    margin-left: 44px;
+    position: relative;
+    top: -22px;
+}
+
+.comments-detail .comment-detail-user .comment {
+    margin:0 0 0 38px;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 8px 12px;
+    width: 400px;
+    max-width: 80%;
+    position: relative;
+    top: -16px;
+}
+
+.add-comment {
+    position: relative;
+    bottom: -20px;
+}
+
+.add-comment .comment-detail-user img {
+    position: relative;
+    top: 22px;
+}
+
+
+.add-comment .comment-detail-user .comment-input {
+    border-radius: 20px;
+    position: relative;
+    left: 12px;
+}
+
+.add-comment-btn {
+    position: relative;
+    left: 81.75%;
+    top: -57px;
+    cursor: pointer;
+    padding: 12px;
+}
+
+.submit-btn {
+    position: absolute;
+    right: 12%;
+    bottom: -4%;
+}
+
+.submit-btn input[type="submit"] {
+    background: none;
+    border: none;
+}
+
+.food-list-content1 {
+    overflow-x: unset;
+    max-width: unset; 
+    min-width: unset;
+}
+
+.food-content-container1 {
+    margin: 12px 12px ;
+    padding: 8px ; 
+ }
