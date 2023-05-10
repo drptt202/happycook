@@ -15,6 +15,7 @@ const AddRecipe = () => {
     const [cookTime, setCookTime] = useState('')
     const [ingreAmount, setIngreAmount] = useState('')
     const [ingredientId, setIngredientId] = useState('')
+    const [ingredientName, setIngredientName] = useState('')
     const [stepIndex, setStepIndex] = useState('')
     const [description, setDescription] = useState('')
     const [step, setStep] = useState(null)
@@ -22,54 +23,36 @@ const AddRecipe = () => {
 
 
     const handleSubmit = (e) => {
+        e.preventDefault();
+
+
         const formData = new FormData()
 
-        formData.append('name', name)
+        const DetailIngredients = [{
+            ingredientId: ingredientId,
+            amount: ingreAmount,
+            name: '',
+        }]
+
+        const Steps = [{
+            description: description,
+            step: stepIndex,
+            image: ''
+        }]
+
+        formData.append('recipe', recipe)
+        formData.append('recipeName', name)
         formData.append('amount', amount)
         formData.append('status', status)
-        formData.append('prepareTime', prepareTime)
-        formData.append('cookTime', cookTime)
-        formData.append('ingredient[]', JSON.stringify([{
-            ingredientId: ingredientId
-        }]))
-        formData.append('ingredient[]', JSON.stringify([{
-            amount: ingreAmount
-        }]))
-        formData.append('step[]', JSON.stringify([{
-            stepIndex: stepIndex
-        }]))
-        formData.append('step[]', JSON.stringify([{
-            description: description
-        }]))
-        formData.append('recipe', recipe)
-        formData.append('step', step)
+        formData.append('preparationTime', prepareTime)
+        formData.append('cookingTime', cookTime)
+        formData.append('DetailIngredients', JSON.stringify(DetailIngredients))
+        formData.append('Steps', JSON.stringify(Steps))
 
-
-        e.preventDefault();
-        axiosCustom1.post('/recipe/createRecipe',
-            // {
-            //     name: name,
-            //     amount: amount,
-            //     status: status,
-            //     prepareTime: prepareTime,
-            //     cookTime: cookTime,
-            //     ingredient: [{
-            //         ingredientId: ingredientId,
-            //         amount: ingreAmount
-            //     }],
-            //     step: [{
-            //         stepIndex: stepIndex,
-            //         description: description
-            //     }],
-            //     recipe: recipe,
-            //     step: step
-            // },
-
-            formData
-        ).then((res) => {
+        axiosCustom1.post('/recipe/createRecipe1', formData).then((res) => {
             toast.success('Thêm công thức thành công')
-            window.location.reload()
             navigate('/recipes')
+            window.location.reload()
         }).catch((err) => { console.log(err) })
 
 
@@ -78,6 +61,7 @@ const AddRecipe = () => {
     const ingredientForm = (data) => {
         setIngreAmount(data.amount)
         setIngredientId(data.ingredientId)
+        setIngredientName(data.ingredientName)
     }
 
 
@@ -87,7 +71,17 @@ const AddRecipe = () => {
         setStep(data.step)
     }
 
-    console.log(name, amount, status, prepareTime, cookTime, ingreAmount, ingredientId, stepIndex, description, step, recipe)
+    const handleChangeImage = e => {
+        const selectedImage = e.target.files
+        const selectedImageArray = Array.from(selectedImage)
+
+        const imagesArray = selectedImageArray.map(img => {
+            return URL.createObjectURL(img)
+        })
+        setRecipe(imagesArray)
+    }
+
+    console.log(name, amount, status, prepareTime, cookTime, ingreAmount, ingredientId, ingredientName, stepIndex, description, step, recipe)
 
 
     return (
@@ -136,6 +130,9 @@ const AddRecipe = () => {
                                             value={cookTime} onChange={(e) => setCookTime(e.target.value)}></input>
                                     </div>
                                 </div>
+                                {recipe && recipe.length > 0 &&
+                                    <img src={recipe} alt='img' style={{ width: '100px', height: '80px', margin: 'auto' }} />
+                                }
                                 <div className='col-lg-12'>
                                     <br />
                                     <div className='form-group row'>
@@ -145,10 +142,9 @@ const AddRecipe = () => {
                                             id={'fileImg'}
                                             type={'file'}
                                             accept={'image/*'}
-                                            onChange={(e) => {
-                                                setRecipe(e.target.files[0]);
-                                            }} ></input>
+                                            onChange={handleChangeImage} ></input>
                                     </div>
+
                                 </div>
                                 <hr />
                             </div>

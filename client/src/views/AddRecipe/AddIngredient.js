@@ -8,8 +8,11 @@ const AddIngredient = (props) => {
     const [ingredientForm, setIngredientForm] = useState([{}])
     const [ingredientBySeasons, setIngredientBySeasons] = useState([])
     const [ingredientId, setIngredientId] = useState('')
+    const [ingredient, setIngredient] = useState('')
+
+    const [ingredientName, setIngredientName] = useState('')
     const [ingreAmount, SetIngreAmount] = useState('')
-    const data = { "ingredientId": ingredientId, "amount": ingreAmount }
+    const data = [{ "ingredientId": ingredientId, "amount": ingreAmount, "ingredientName": ingredientName }]
 
     props.getIngredientForm(data)
 

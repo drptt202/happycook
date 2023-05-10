@@ -21,7 +21,7 @@ const Follower = (props) => {
         <div className="list-content">
             {data && data.length > 0 &&
                 data.map((item, index) => (
-                    <RenderItem index={index} item={item} />
+                    <RenderItem key={index} item={item} />
                 ))
             }
         </div>

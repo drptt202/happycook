@@ -8,9 +8,12 @@ const AddStep = (props) => {
     const [stepIndex, setStepIndex] = useState('')
     const [description, setDescription] = useState('')
     const [step, setStep] = useState(null)
-    const data = { "stepIndex": stepIndex, "description": description, "step": step }
+    const [sendData, setSendData] = useState('')
 
+    const data = [{ "stepIndex": stepIndex, "description": description, "step": step }]
     props.getStepForm(data)
+
+
 
     const handleStepFormAdd = () => {
         const form = [...stepForm, []]

@@ -6,7 +6,7 @@ const EditRecipe = () => {
     const recipeId = param.recipeId
 
     return (
-        <div>EditRecipe {recipeId}</div>
+        <div></div>
     )
 }
 

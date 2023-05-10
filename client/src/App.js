@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import './styles/App.scss';
 import Login from './views/Account/Login';
 import Register from './views/Account/Register';
@@ -48,6 +48,7 @@ function App() {
         <Route path="/editrecipe/:recipeId" element={<EditRecipe />} />
       </Routes>
       <ToastContainer theme='colored' />
+
     </div>
   );
 }

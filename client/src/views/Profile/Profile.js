@@ -13,7 +13,8 @@ import { imgUrl } from '../../services/ImgUrl'
 import { toast } from 'react-toastify'
 import Follower from '../Friend/Follower'
 import Following from '../Friend/Following'
-import { followClick } from '../../services/ApiService'
+import { followClick, getFollower } from '../../services/ApiService'
+
 
 
 
@@ -51,7 +52,6 @@ const Profile = () => {
         followClick(userData)
     }
 
-    console.log('userData', userData)
 
     const openEditProfile = () => {
         if (open === true) {
@@ -97,6 +97,12 @@ const Profile = () => {
     const toChangePassword = () => {
         navigate('/changepassword', { state: userData })
     }
+    const toLogout = () => {
+        sessionStorage.setItem('isLogin', false)
+        localStorage.clear()
+        navigate('/')
+        window.location.reload();
+    }
 
     useEffect(() => {
         axiosCustom.get(`/user/getUser/${Id}`)
@@ -121,6 +127,8 @@ const Profile = () => {
                                 <div onClick={toUpdateId} className="edit-profile-content" style={{ marginBottom: '10px' }}>Cập nhật tài khoản</div>
                                 <div className="w-100"></div>
                                 <div onClick={toChangePassword} className="edit-profile-content">Đổi mật khẩu</div>
+                                <div className="w-100"></div>
+                                <div onClick={toLogout} style={{ marginTop: '8px' }} className="edit-profile-content">Đăng xuất</div>
                             </ul>
                         }
                     </div>
@@ -146,14 +154,16 @@ const Profile = () => {
                             <p>{userData.dateOfBirth}</p>
                             <p>{userData.email}</p>
                             <br />
-                            {/* <div className="list-title">
-                                {isFollow ?
-                                    <div className="is-follow" style={{ fontSize: '16px' }} onClick={(e) => handleFollow(e)}>Đang theo dõi</div>
-                                    :
-                                    <div className="is-follow" style={{ fontSize: '16px' }} onClick={(e) => handleFollow(e)}><FontAwesomeIcon icon={faUserPlus} /> Theo dõi</div>
-                                }
-                            </div> */}
                             {authId !== param.authId &&
+                                <div className="list-title">
+                                    {isFollow ?
+                                        <div className="is-follow" style={{ fontSize: '16px' }} onClick={(e) => handleFollow(e)}>Đang theo dõi</div>
+                                        :
+                                        <div className="is-follow" style={{ fontSize: '16px' }} onClick={(e) => handleFollow(e)}><FontAwesomeIcon icon={faUserPlus} /> Theo dõi</div>
+                                    }
+                                </div>
+                            }
+                            {/* {authId !== param.authId &&
                                 <div className="list-title">
                                     {isFollow ?
                                         <div className="is-follow" style={{ fontSize: '16px' }}>Đang theo dõi</div>
@@ -161,7 +171,7 @@ const Profile = () => {
                                         <div className="is-follow" style={{ fontSize: '16px' }}><FontAwesomeIcon icon={faUserPlus} /> Theo dõi</div>
                                     }
                                 </div>
-                            }
+                            } */}
                             <ul className="about">
                                 <li><span>{profileData.countFollowed}</span>Người theo dõi</li>
                                 <li><span>{profileData.countFollowing}</span>Đang theo dõi</li>

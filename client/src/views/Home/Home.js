@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import SearchBox from './../Search/SearchBox'
 import HomeContent from './HomeContent'
 import Footer from '../Footer'
@@ -9,20 +9,23 @@ import IngredientRecomment from './IngredientRecomment'
 const Home = () => {
     return (
         <Fragment>
-            <div className="col-12">
-                <div className="logo_area text-center">
-                    <Link to={'/'} className="app-logo">Happy Cook</Link>
+
+            <Fragment>
+                <div className="col-12">
+                    <div className="logo_area text-center">
+                        <Link to={'/'} className="app-logo">Happy Cook</Link>
+                    </div>
                 </div>
-            </div>
-            <SearchBox />
+                <SearchBox />
 
-            <IngredientRecomment />
+                <IngredientRecomment />
 
-            <HomeContent title={'Công thức mới nhất'} url='/recipe/getAllRecipe' />
-            <HomeContent title={'Công thức phổ biến trong tuần'} url='/recipe/getPopularRecipe' />
-            <HomeContent title={'Công thức từ người đã follow'} url='/recipe/getRecipeFromFollowers' />
+                <HomeContent title={'Công thức mới nhất'} url='/recipe/getAllRecipe' />
+                <HomeContent title={'Công thức phổ biến trong tuần'} url='/recipe/getPopularRecipe' />
+                <HomeContent title={'Công thức từ người đã follow'} url='/recipe/getRecipeFromFollowers' />
 
-            <Footer />
+                <Footer />
+            </Fragment>
         </Fragment>
     )
 }

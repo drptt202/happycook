@@ -37,7 +37,6 @@ const MarkList = (props) => {
         // console.log('recipeListId', recipeListId)
     }
 
-    console.log('data', data)
     return (
         <div className="list-content">
             {data && data.length > 0 &&

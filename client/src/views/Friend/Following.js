@@ -18,6 +18,8 @@ const Following = (props) => {
         } catch (e) { console.log(e) }
     }
 
+    console.log('data', data)
+
     return (
         <div className="list-content">
             {data && data.length > 0 &&
