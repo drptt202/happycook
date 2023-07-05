@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { searchRecipe } from '../../services/ApiService'
-import { toast } from 'react-toastify'
 import './Search.scss'
 import { useNavigate } from 'react-router'
 
@@ -62,18 +61,18 @@ const SearchBox = () => {
                     onChange={(e) => { setInput(e.target.value); autoComplete(input) }}
                     onKeyDown={(e) => onEnter(e)}
                 />
-                {isOpen &&
-                    <div className="auto-complete">
-                        {hint && hint.length > 0 &&
-                            hint.map((item, index) => (
-                                <li className='content' key={index}
-                                    onClick={() => handleOnClick(item.recipeName)}
-                                >{item.recipeName}</li>
-                            ))}
-                    </div>
-                }
                 <span className="delete-input" onClick={() => { setInput(''); setIsOpen(false) }}><i className="fa fa-close"></i></span>
             </div>
+            {isOpen &&
+                <div className="auto-complete">
+                    {hint && hint.length > 0 &&
+                        hint.map((item, index) => (
+                            <li className='content' key={index}
+                                onClick={() => handleOnClick(item.recipeName)}
+                            >{item.recipeName}</li>
+                        ))}
+                </div>
+            }
         </div>
     )
 }

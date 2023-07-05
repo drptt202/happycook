@@ -1,24 +1,24 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import './styles/App.scss';
-import Login from './views/Account/Login';
-import Register from './views/Account/Register';
-import Home from './views/Home/Home';
-import Profile from './views/Profile/Profile';
-import UpdateAccount from './views/Profile/UpdateAccount';
-import UpdatePassword from './views/Profile/UpdatePassword';
-import RecipeDetails from './views/Recipes/RecipeDetails';
-import RecipesList from './views/Recipes/RecipesList';
-import AddRecipe from './views/AddRecipe/AddRecipe';
+import Login from './components/Account/Login';
+import Register from './components/Account/Register';
+import Home from './components/Home/Home';
+import Profile from './components/Profile/Profile';
+import UpdateAccount from './components/Profile/UpdateAccount';
+import UpdatePassword from './components/Profile/UpdatePassword';
+import RecipeDetails from './components/Recipes/RecipeDetails';
+import RecipesList from './components/Recipes/RecipesList';
+import AddRecipe from './components/AddRecipe/AddRecipe';
 import { ToastContainer } from 'react-toastify';
-import NavBar from './views/NavBar';
+import NavBar from './components/NavBar';
 
 
 import {
   Routes,
   Route
 } from 'react-router-dom';
-import SearchResult from './views/Search/SearchResult';
-import EditRecipe from './views/AddRecipe/EditRecipe';
+import SearchResult from './components/Search/SearchResult';
+import EditRecipe from './components/AddRecipe/EditRecipe';
 
 function App() {
   const [isLogin, setIsLogin] = useState(false)
